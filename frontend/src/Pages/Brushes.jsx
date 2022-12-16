@@ -19,7 +19,7 @@ import {
   MenuItemOption,
   Button,
 } from "@chakra-ui/react";
-import ProductBox from "../Components/ProductBox/ProductBox";
+import ProductBox from "../components/ProductBox/ProductBox";
 
 function Brushes() {
   const breakpoints = {
