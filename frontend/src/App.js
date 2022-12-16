@@ -1,4 +1,5 @@
 import './App.css';
+import FinalBrushesPage from './components/Brushes/FinalBrushesPage';
 
 // import Navbar from './components/Navbar';
 
@@ -6,6 +7,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <FinalBrushesPage/>
      
  
     </div>
