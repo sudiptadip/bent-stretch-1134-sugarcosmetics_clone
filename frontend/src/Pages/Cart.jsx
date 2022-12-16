@@ -22,9 +22,9 @@ import {
 } from "@chakra-ui/react";
 
 import { MdKeyboardArrowRight } from "react-icons/md";
-import CartProduct from "../Components/ProductBox/CartProduct";
+import CartProduct from "../components/ProductBox/CartProduct";
 import { v4 as uuidv4 } from "uuid";
-import { addToCart, removeAll, toggleUsername } from "../features/Cart/Cart";
+ import { addToCart, removeAll, toggleUsername } from "../features/Cart/Cart";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
