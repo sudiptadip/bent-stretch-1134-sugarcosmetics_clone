@@ -23,7 +23,7 @@ export default function MakeupIndividual() {
   };
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   const payload = {
     url: product.image,

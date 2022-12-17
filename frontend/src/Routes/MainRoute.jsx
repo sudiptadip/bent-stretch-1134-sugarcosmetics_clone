@@ -4,7 +4,7 @@ import LipsIndividual from '../components/IndividualPages/LipsIndividual';
 import MakeupIndividual from '../components/IndividualPages/MakeupIndividual';
 import Brushes from '../Pages/Brushes'
 import Cart from '../Pages/Cart';
-import Eyes from '../Pages/Eyes'
+import Eyes from '../Pages/Eyes';
 import Face from '../Pages/Face'
 import Homepage from '../Pages/Homepage'
 import Lips from '../Pages/Lips'
