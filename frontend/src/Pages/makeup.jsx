@@ -53,13 +53,13 @@ function Makeup() {
 
   }
   useEffect(() => {
-    let url = "https://cosmeticsapi1.herokuapp.com/makeup"
+    let url = "https://gearbest-database.onrender.com/makeup"
     if (prod.length !== 0 && order.length !== 0)
-      url = `https://cosmeticsapi1.herokuapp.com/makeup?_sort=price&_order=${order}&q=${prod}`
+      url = `https://gearbest-database.onrender.com/makeup?_sort=price&_order=${order}&q=${prod}`
     else if (prod.length !== 0)
-      url = `https://cosmeticsapi1.herokuapp.com/makeup?q=${prod}`
+      url = `https://gearbest-database.onrender.com/makeup?q=${prod}`
     else if (order.length !== 0)
-      url = `https://cosmeticsapi1.herokuapp.com/makeup?_sort=price&_order=${order}`
+      url = `https://gearbest-database.onrender.com/makeup?_sort=price&_order=${order}`
 
     getData(url);
 
@@ -143,7 +143,17 @@ function Makeup() {
   <Skeleton height='414px' width='307px'/>
   <Skeleton height='414px' width='307px'/>
 </Grid>
-   </Box>:data.map((elem) => (elem.price !== undefined && <GridItem><ProductBox rating={elem.rating} catg={elem.catg} id={elem.id} url={elem.image} description={elem.name} price={elem.price} /></GridItem>))}
+   </Box>:data.map(
+                (elem) =>
+                  elem.price !== undefined && (
+                    <GridItem>
+                      <ProductBox rating={elem.rating} 
+   catg={elem.catg} 
+   id={elem.id} 
+   url={elem.image} 
+   description={elem.name}
+    price={elem.price} />
+                      </GridItem>))}
 
 
         </Grid>

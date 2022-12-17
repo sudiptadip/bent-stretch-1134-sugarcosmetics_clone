@@ -49,13 +49,13 @@ function Brushes() {
     setProd(prod);
   }
   useEffect(() => {
-    let url = "https://concerned-cyan-tank-top.cyclic.app/brushes";
+    let url = "https://gearbest-database.onrender.com/brushes";
     if (prod.length !== 0 && order.length !== 0)
-      url = `https://concerned-cyan-tank-top.cyclic.app/brushes?_sort=price&_order=${order}&q=${prod}`;
+      url = `https://gearbest-database.onrender.com/brushes?_sort=price&_order=${order}&q=${prod}`;
     else if (prod.length !== 0)
-      url = `https://concerned-cyan-tank-top.cyclic.app/brushes?q=${prod}`;
+      url = `https://gearbest-database.onrender.com/brushes?q=${prod}`;
     else if (order.length !== 0)
-      url = `https://concerned-cyan-tank-top.cyclic.app/brushes?_sort=price&_order=${order}`;
+      url = `https://gearbest-database.onrender.com/brushes?_sort=price&_order=${order}`;
 
     getData(url);
   }, [order, prod]);

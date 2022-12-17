@@ -25,7 +25,7 @@ function Trending() {
   const [prod, setProd] = useState("");
   async function getData(url) {
     try {
-      //setLoading(true)
+      setLoading(true)
       var res = await fetch(url);
       var res2 = await res.json();
       setData(res2);
@@ -40,13 +40,13 @@ function Trending() {
     setProd(prod);
   }
   useEffect(() => {
-    let url = "https://concerned-cyan-tank-top.cyclic.app/treanding";
+    let url = "https://gearbest-database.onrender.com/trending";
     if (prod.length !== 0 && order.length !== 0)
-      url = `https://concerned-cyan-tank-top.cyclic.app/treanding?_sort=price&_order=${order}&q=${prod}`;
+      url = `https://gearbest-database.onrender.com/trending?_sort=price&_order=${order}&q=${prod}`;
     else if (prod.length !== 0)
-      url = `https://concerned-cyan-tank-top.cyclic.app/treanding?q=${prod}`;
+      url = `https://gearbest-database.onrender.com/trending?q=${prod}`;
     else if (order.length !== 0)
-      url = `https://concerned-cyan-tank-top.cyclic.app/treanding?_sort=price&_order=${order}`;
+      url = `https://gearbest-database.onrender.com/trending?_sort=price&_order=${order}`;
 
     getData(url);
   }, [order, prod]);
