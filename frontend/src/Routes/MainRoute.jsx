@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import Brushes from '../Pages/Brushes'
 import Cart from '../Pages/Cart';
-import Eyes from '../Pages/Eyes'
+import Eyes from '../Pages/Eyes';
 import Face from '../Pages/Face'
 import Homepage from '../Pages/Homepage'
 import Lips from '../Pages/Lips'
