@@ -86,7 +86,7 @@ function ProductBox(props) {
             )}
           </button>
           <button
-            // onClick={() => dispatch(addToCart(payload))}
+             onClick={() => dispatch(addToCart(payload))}
             style={{
               width: "150px",
               color: "white",

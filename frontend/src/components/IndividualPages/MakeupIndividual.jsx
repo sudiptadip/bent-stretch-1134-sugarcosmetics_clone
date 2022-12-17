@@ -10,14 +10,16 @@ export default function MakeupIndividual() {
   const dispatch = useDispatch();
 
   const [product, setproduct] = useState({});
-  const { catg, id } = useParams();
+  const { id } = useParams();
   const getData = async () => {
     try {
       let res = await fetch(`https://gearbest-database.onrender.com/makeup/${id}`);
       let data = await res.json();
 
       setproduct(data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   };
   useEffect(() => {
     getData();
@@ -28,6 +30,7 @@ export default function MakeupIndividual() {
     description: product.name,
     price: product.price,
     id: product.id,
+    catg:product.catg,
   };
   return (
     <div>
