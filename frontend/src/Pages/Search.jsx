@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { GridItem, Grid, Skeleton, Box } from "@chakra-ui/react";
-import ProductBox from "../Components/ProductBox/ProductBox";
+import ProductBox from "../components/ProductBox/ProductBox";
 
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,7 +15,7 @@ export default function Search() {
     try {
       setLoading(true);
       let res = await fetch(
-        `https://scserver.onrender.com/api/products?search=${searchQuery}`
+        `https://concerned-cyan-tank-top.cyclic.app/api/products?search=${searchQuery}`
       );
       let data = await res.json();
       setProducts(data.data.products);

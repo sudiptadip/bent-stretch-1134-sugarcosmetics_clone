@@ -39,7 +39,7 @@ const Login = () => {
   const [userDetails, setUserDetails] = useState({});
 
   function getAccessToken(pin) {
-    fetch("https://scserver.onrender.com/api/user/signup/verify", {
+    fetch("https://concerned-cyan-tank-top.cyclic.app/api/user/signup/verify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Login = () => {
 
   let otp = "";
   function getOtp() {
-    fetch("https://scserver.onrender.com/api/user/signup", {
+    fetch("https://concerned-cyan-tank-top.cyclic.app/api/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
