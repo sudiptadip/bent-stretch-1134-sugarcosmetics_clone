@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Login.module.css";
+import {Admin} from "./Admin";
+
 import {
   useToast,
   Button,
@@ -8,9 +10,6 @@ import {
   PinInputField,
   Modal,
   Text,
-  Box,
-  Alert,
-  AlertIcon,
   ModalOverlay,
   ModalContent,
   ModalHeader,
@@ -21,15 +20,23 @@ import {
   FormLabel,
   ModalCloseButton,
   useDisclosure,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleUsername } from "../features/Cart/Cart";
 
 const Login = () => {
   const [randomOtp, setRandomOtp] = useState("");
-
+  const [username,setUsername] = useState('')
+  const [userpassword,setUserpassword] = useState('')
+  const navigate=useNavigate();
   const [pin, setPin] = useState(null);
   const [phone, setPhone] = useState(null);
   const dispatch = useDispatch();
@@ -76,7 +83,7 @@ const Login = () => {
             title: "OTP sent successfully",
             description: `Your OTP is ${data.otp}.`,
             status: "success",
-            duration: 9000,
+            duration: 6000,
             isClosable: true,
             position: "top",
           });
@@ -221,16 +228,43 @@ const Login = () => {
         <div className={styles.hi_image}>
           <img src="https://media.sugarcosmetics.com/upload/Hi!.png" />
         </div>
-        <div className={styles.logininput}>
+        {/* <div>
+          
+        </div> */}
+        <div className={styles.logininput} style={{margin:"auto"}}>
+          <Tabs isManual variant="enclosed">
+            <TabList>
+              <Tab>Admin</Tab>
+              <Tab>User</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+              <Stack spacing={3} style={{margin:"auto"}}>
+              <Input placeholder='User-Name / Email' size='lg' onChange={(e)=>setUsername(e.target.value)} />
+  <Input placeholder='Password' size='lg' type="password" onChange={(e)=>setUserpassword(e.target.value)} />
+ 
+    <Button colorScheme='blue' onClick={()=>{
+      if(username == "uday@masai.com" && userpassword == "uday@123"){
+        navigate("/admin")
+      }else{
+        alert("wrong email and password")
+      }
+      
+      }} >Login</Button>
+</Stack>
+              </TabPanel>
+              <TabPanel>
+              <div className={styles.logininput}>
           <h3>Login/Sign Up Using Phone</h3>
         </div>
 
         {!status ? (
-          <div className={styles.input_box}>
+          <div className={styles.input_box} style={{margin:  "auto"}}>
             {" "}
             <div className={styles.input_num}>+91</div>
-            <div>
+            <div >
               <input
+        
                 className={styles.input_item}
                 type="number"
                 value={phone}
@@ -264,8 +298,15 @@ const Login = () => {
           set up for you in no time. We will only ask you for information
           necessary to make the purchase process faster and easier.
         </div>
+        {!status ? <ToastExample /> : <BasicUsage />}
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </div>
+
+        
         <div>
-          {!status ? <ToastExample /> : <BasicUsage />}
+         
 
           {/* <div> <button className={styles.otp_btn} onClick={()=>{
       dispatch(toggleUsername(name))

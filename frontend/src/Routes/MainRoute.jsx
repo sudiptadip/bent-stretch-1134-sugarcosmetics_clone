@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import LipsIndividual from '../components/IndividualPages/LipsIndividual';
 import MakeupIndividual from '../components/IndividualPages/MakeupIndividual';
+import Admin from '../Pages/Admin';
 import Brushes from '../Pages/Brushes'
 import Cart from '../Pages/Cart';
 import Eyes from '../Pages/Eyes';
@@ -20,6 +21,7 @@ export default function MainRoute() {
       <Routes>
         <Route path="/"  element={<Homepage/>}></Route>
         <Route path="/login"  element={<Login/>}></Route>
+        <Route path="/admin"  element={<Admin/>}></Route>
         <Route path="/cart"  element={<Cart/>}></Route>
         <Route path="/makeup"  element={<Makeup/>}></Route>
         <Route path="/brushes"  element={<Brushes/>}></Route>
