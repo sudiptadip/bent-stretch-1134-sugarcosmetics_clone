@@ -1,8 +1,8 @@
-import { Box, Button, Image, Input, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Grid, Image, Input, Stack, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Admin() {
+export default function Admin() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
@@ -10,7 +10,7 @@ function Admin() {
   const [dprice, setDprice] = useState("");
   const [count, setCount] = useState(50);
   const [data, setData] = useState([]);
-
+ // setName(""); setDescription(""); setUrl(""); setPrice(""); setDprice("")
   useEffect(() => {
     axios
       .get("https://alert-cyan-kingfisher.cyclic.app/books")
@@ -25,7 +25,6 @@ function Admin() {
   function Preview() {
     setCount(count + 1);
     // localStorage.setItem("product",JSON.stringify({name,description,url,price,dprice,count}))
-    // window.location.reload()
     axios
       .post("https://alert-cyan-kingfisher.cyclic.app/books", {
         name,
@@ -36,29 +35,33 @@ function Admin() {
       })
       .then((e) => console.log(e))
       .catch((e) => console.log(e));
-    }
+      alert("Successfuly Complite")
+      window.location.reload()
+      // setName(""); setDescription(""); setUrl(""); setPrice(""); setDprice("")
+  }
 
-    function delprod(id){
-        axios.delete(`https://alert-cyan-kingfisher.cyclic.app/books/${id}`)
-        .then((e)=>console.log("deleted succ"))
-        .catch((e)=>console.log(e));
-    }
+  function delprod(id) {
+    axios
+      .delete(`https://alert-cyan-kingfisher.cyclic.app/books/${id}`)
+      .then((e) => console.log("deleted succ"))
+      .catch((e) => console.log(e));
+      alert("Item Removed")
+      window.location.reload()
+  }
   // console.log(data)
   return (
     <div
       style={{
         display: "flex",
-        height: "500px",
-        width: "80%",
         marginLeft: "10%",
       }}
     >
-      <div>
+      <Box w={"30%"}>
         <Box>
           <Input
             placeholder="Product-Name"
             size="lg"
-            w="150%"
+            w="100%"
             mt="150px"
             onChange={(e) => setName(e.target.value)}
           />
@@ -68,7 +71,7 @@ function Admin() {
           <Input
             placeholder="Product description"
             size="lg"
-            w="150%"
+            w="100%"
             onChange={(e) => setDescription(e.target.value)}
           />
         </Box>
@@ -76,7 +79,7 @@ function Admin() {
           <Input
             placeholder="image_url"
             size="lg"
-            w="150%"
+            w="100%"
             onChange={(e) => setUrl(e.target.value)}
           />
         </Box>
@@ -84,7 +87,7 @@ function Admin() {
           <Input
             placeholder="Price"
             size="lg"
-            w="150%"
+            w="100%"
             onChange={(e) => setPrice(e.target.value)}
           />
         </Box>
@@ -92,43 +95,76 @@ function Admin() {
           <Input
             placeholder="Discounted Price"
             size="lg"
-            w="150%"
+            w="100%"
             onChange={(e) => setDprice(e.target.value)}
           />
         </Box>
 
-        <Button colorScheme="blue" w="150%" onClick={Preview}>
+        <Button mt={'20px'} colorScheme="blue" w="100%" onClick={Preview}>
           Add Product
         </Button>
-      </div>
-<Box>
-      <Text fontSize={"30px"} textAlign={"center"}
->      Total Product : {data.length+50}
-         </Text>
-    <Box>
-      {data.map((dataa,i) => (
-        <Box
-          w={"70%"}
-          h={"500px"}
-          border={"1px solid black"}
-          ml={"30%"}
-          mt={"50px"}
-        >
-        
-          
-            <Image src={dataa.url} />
+      </Box>
 
-            <Text>{dataa.name}</Text>
-            <span>{dataa.price}</span>
-            <span>{dataa.dprice}</span>
-            <Button colorScheme={"red"} onClick={()=>{delprod(dataa.id)}} >Remove Item</Button>
-          </Box>
-    
-      ))}</Box>
+      <Box border={"1px solid black"} ml={"5%"} w={"60%"}>
+        <Text fontSize={"30px"} textAlign={"center"}>
+          {" "}
+          Total Product : {data.length + 50}
+        </Text>
+        <Grid
+          templateColumns="repeat(2, 1fr)"
+          gap={3}
+          // border={"1px solid black"}
+          ml={'12%'}
+        >
+          {data.map((dataa, i) => (
+            <Box
+              w={"70%"}
+              border={"1px solid black"}
+              mt={"50px"}
+              borderRadius={"15px"}
+            >
+              {" "}
+              <Box w={"100%"} h={"240px"}>
+                <Image
+                  borderTopRightRadius={"15px"}
+                  borderTopLeftRadius={"15px"}
+                  w={"100%"}
+                  h={"240px"}
+                  src={dataa.url}
+                />
+              </Box>
+              <Text mt={"10px"} fontWeight={500} fontSize={"18px"}>
+                {dataa.name}
+              </Text>
+              <Text fontWeight={400} fontSize={"15px"}>
+                {" "}
+                Price : {dataa.price}/-
+              </Text>
+              <Box display={"flex"} gap={"5"} justifyContent={"center"}>
+                <Button
+                  mt={"10px"}
+                  width={"40%"}
+                  mb={"20px"}
+                  colorScheme={"red"}
+                  onClick={() => {
+                    delprod(dataa.id);
+                  }}
+                >
+                  Remove
+                </Button>
+                <Button
+                  mt={"10px"}
+                  width={"40%"}
+                  mb={"20px"}
+                  colorScheme={"green"}
+                >
+                  Edit Item
+                </Button>
+              </Box>
+            </Box>
+          ))}
+        </Grid>
       </Box>
     </div>
   );
 }
-
-
-export { Admin };
