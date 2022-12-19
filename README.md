@@ -3,7 +3,7 @@ SUGAR Cosmetics is a cruelty-free makeup brand that is high on style and higher 
 
 Manufactured in state-of-the-art facilities across Germany, Italy, India, USA and Korea the brand ships its bestselling products across Lips, Eyes, Face and Nail categories across the world.
 
-<a href="https://sugar-cosmetics-app.netlify.app/">![Logo](https://media.sugarcosmetics.com/upload/Logo-static.jpg)</a>
+<a href="https://sugar-clone.vercel.app/">![Logo](https://media.sugarcosmetics.com/upload/Logo-static.jpg)</a>
 ## Technologies Used
 
 #### Tech Stack-
@@ -25,7 +25,7 @@ Manufactured in state-of-the-art facilities across Germany, Italy, India, USA an
 
 Deployed with netlify app 
 ```
-https://sugar-cosmetics-app.netlify.app/
+https://sugar-clone.vercel.app/
  ```
 
 ### <u>Run Locally</u>
@@ -64,7 +64,7 @@ go to http://localhost:3000
    </p>
  
  Click the link to view project: 
- <a href="https://sugar-cosmetics-app.netlify.app/">Sugar Cosmetics</a>
+ <a href="https://sugar-clone.vercel.app/">Sugar Cosmetics</a>
   
 ## Lessons Learned
 
