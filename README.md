@@ -25,7 +25,6 @@ Manufactured in state-of-the-art facilities across Germany, Italy, India, USA an
 
 Deployed with netlify app 
 ```
-
 https://sugar-cosmetics-app.netlify.app/
  ```
 
