@@ -68,7 +68,7 @@ go to http://localhost:3000
   
 ## Lessons Learned
 
-As we never really stop learning, This was our 2nd full-stack project, and as usual there were a lot of chalenges with the learnings we experienced. some of the highlighted learning were:-
+As we never really stop learning, This was our 1st full-stack project, and as usual there were a lot of chalenges with the learnings we experienced. some of the highlighted learning were:-
 - Building Database using mongodb and deployment using Mongo Atlas
 - Setting up API requests using Express and Deployment on cyclic
 - Algorithm building for users data such as, items in cart, location etc.
